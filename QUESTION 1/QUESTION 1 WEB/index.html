@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rheonics Web Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar expanded">
+    <div class="sidebar-header">
+      <img id="sidebarLogo" class="logo" src="img/RHEONICS WHITE LOGO.png" alt="Logo" />
+    </div>
+    <ul class="nav flex-column pt-3" id="sidebarLinks">
+      <li class="nav-item">
+        <a class="nav-link active" data-tab="dashboard" href="#" title="Dashboard">
+          <i class="bi bi-house-door"></i>
+          <span class="ms-2 link-label" data-i18n="dashboard">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="database" href="#" title="Database">
+          <i class="bi bi-database"></i>
+          <span class="ms-2 link-label" data-i18n="database">Database</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="reports" href="#" title="Reports">
+          <i class="bi bi-bar-chart-line"></i>
+          <span class="ms-2 link-label" data-i18n="reports">Reports</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-tab="settings" href="#" title="Settings">
+          <i class="bi bi-gear"></i>
+          <span class="ms-2 link-label" data-i18n="settings">Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="mt-auto p-2"></div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top Bar -->
+    <nav class="navbar navbar-dark bg-transparent shadow-none py-2 px-3 align-items-center justify-content-between">
+      <div class="d-toggleSidebar">
+        <button class="btn btn-link p-0 ms-auto me-1" id="toggleSidebar" title="Toggle sidebar">
+          <i class="bi bi-list" style="font-size:1.6rem;"></i>
+        </button>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button id="themeBtn" class="btn btn-icon" title="Switch Theme">
+          <i class="bi bi-moon"></i>
+        </button>
+        <div class="dropdown" id="langDropdownHeader">
+          <button class="btn btn-icon dropdown-toggle" type="button" data-bs-toggle="dropdown" title="Change language"
+            id="langDropdownBtn">
+            <i class="bi bi-translate"></i> <span id="currentLangName" class="d-none d-md-inline">English</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" id="langDropdownMenu">
+            <li><label class="dropdown-item lang-radio"><input type="radio" name="lang" value="en" checked>
+                English</label></li>
+            <li><label class="dropdown-item lang-radio"><input type="radio" name="lang" value="es"> Español</label></li>
+            
+          </ul>
+        </div>
+        <span class="user-badge bg-primary rounded-circle text-white ms-2">M</span>
+      </div>
+    </nav>
+
+    <!-- Tabs/Sections -->
+    <div id="tab-dashboard" class="tab-content-section">
+      <div class="container-fluid p-4 pb-5">
+        <h4 data-i18n="greeting">Good afternoon, Manager</h4>
+        <div class="text-muted mb-4" data-i18n="welcome">Welcome to your manager dashboard</div>
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-md-3">
+            <div class="card info-card text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="0">
+              <div class="card-body">
+                <i class="bi bi-people-fill fa-2x mb-2 text-info" style="font-size:2rem;"></i>
+                <div class="card-title fs-6" data-i18n="activeUsers">Active Users</div>
+                <div class="fs-4 fw-bold">124</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card info-card text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="50">
+              <div class="card-body">
+                <i class="bi bi-hdd-network fa-2x mb-2 text-success" style="font-size:2rem;"></i>
+                <div class="card-title fs-6" data-i18n="databaseSize">Database Size</div>
+                <div class="fs-4 fw-bold">1.2 GB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card info-card text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+              <div class="card-body">
+                <i class="bi bi-shield-lock fa-2x mb-2 text-purple" style="font-size:2rem;"></i>
+                <div class="card-title fs-6" data-i18n="securityScore">Security Score</div>
+                <div class="fs-4 fw-bold">92%</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card info-card text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="150">
+              <div class="card-body">
+                <i class="bi bi-lock-fill fa-2x mb-2 text-warning" style="font-size:2rem;"></i>
+                <div class="card-title fs-6" data-i18n="authRequests">Auth Requests</div>
+                <div class="fs-4 fw-bold">2.4k</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="200">
+              <div style="position: relative;">
+                <div class="card-header"><i class="bi bi-database"></i> <span data-i18n="databaseActivity">Database
+                    Activity</span>
+
+                </div>
+                <a href="#" class="btn btn-link p-0 see-more" data-target="database"><span data-i18n="seeMore">See
+                    more</span> <i class="bi bi-box-arrow-in-up-right"></i></a>
+              </div>
+
+              <div class="card-body text-muted small d-flex align-items-center justify-content-center"
+                style="min-height:240px;">
+
+                <span data-i18n="dbChartPlaceholder">Database activity chart would display here</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="250">
+              <div style="position: relative;">
+                <div class="card-header"><i class="bi bi-bar-chart-line"></i> <span data-i18n="userStatistics">User
+                    Statistics</span>
+
+                </div>
+                <a href="#" class="btn btn-link p-0 see-more" data-target="reports"><span data-i18n="seeMore">See
+                    more</span> <i class="bi bi-box-arrow-in-up-right"></i></a>
+              </div>
+
+              <div class="card-body text-muted small d-flex align-items-center justify-content-center"
+                style="min-height:240px;">
+                <span data-i18n="userChartPlaceholder">User statistics chart would display here</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="300">
+          <div class="card-header" data-i18n="recentActivity">Recent Activity</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>
+                <i class="bi bi-person-circle me-2"></i>
+                <span data-i18n="logEntry1">User activity log entry 1</span>
+                <span class="text-muted small ms-2" data-i18n="oneHourAgo">1 hour ago</span>
+              </span>
+              <span class="badge bg-success" data-i18n="completed">Completed</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>
+                <i class="bi bi-person-circle me-2"></i>
+                <span data-i18n="logEntry2">User activity log entry 2</span>
+                <span class="text-muted small ms-2" data-i18n="twoHoursAgo">2 hours ago</span>
+              </span>
+              <span class="badge bg-info" data-i18n="inProgress">In Progress</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>
+                <i class="bi bi-person-circle me-2"></i>
+                <span data-i18n="logEntry3">User activity log entry 3</span>
+                <span class="text-muted small ms-2" data-i18n="threeHoursAgo">3 hours ago</span>
+              </span>
+              <span class="badge bg-warning" data-i18n="pending">Pending</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>
+                <i class="bi bi-person-circle me-2"></i>
+                <span data-i18n="logEntry4">User activity log entry 4</span>
+                <span class="text-muted small ms-2" data-i18n="fourHoursAgo">4 hours ago</span>
+              </span>
+              <span class="badge bg-danger" data-i18n="failed">Failed</span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-database" class="tab-content-section" style="display:none">
+      <div class="container-fluid p-4 pb-6">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 data-i18n="databaseTitle">Database</h4>
+          <button class="btn btn-primary btn-sm">
+            <i class="bi bi-plus-circle"></i> <span data-i18n="addNew">Add new</span>
+          </button>
+        </div>
+        <div class="card">
+          <div class="card-header" data-i18n="usersTable">Users Table</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-dark table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th data-i18n="name">Name</th>
+                    <th data-i18n="email">Email</th>
+                    <th data-i18n="role">Role</th>
+                    <th data-i18n="status">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Juan Pérez</td>
+                    <td>juan@empresa.com</td>
+                    <td data-i18n="admin">Admin</td>
+                    <td><span class="badge bg-success" data-i18n="active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Maria García</td>
+                    <td>maria@empresa.com</td>
+                    <td data-i18n="user">User</td>
+                    <td><span class="badge bg-secondary" data-i18n="inactive">Inactive</span></td>
+                  </tr>
+                  <!-- ...más registros dummy -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-reports" class="tab-content-section" style="display:none">
+      <div class="container-fluid p-4 pb-6">
+        <h4 data-i18n="reportsTitle">Reports</h4>
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-6">
+            <div class="card h-100">
+              <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
+                <span data-i18n="activityChart">Activity Chart</span>
+                <select class="form-select form-select-sm w-auto ms-auto" id="chartRangeSelect"
+                  style="min-width:110px;">
+                  <option value="week" selected>Week</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                </select>
+              </div>
+              <div class="card-body">
+                <canvas id="activityChart" height="160"></canvas>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card h-100">
+              <div class="card-header" data-i18n="recentReports">Recent Reports</div>
+              <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">#4567 - <span data-i18n="reportSystem">System report</span> - 2025-06-01
+                  </li>
+                  <li class="list-group-item">#4566 - <span data-i18n="reportUsers">User report</span> - 2025-05-30</li>
+                  <!-- ...más reportes -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-settings" class="tab-content-section" style="display:none">
+      <div class="container-fluid p-4 pb-6">
+        <h4 data-i18n="settingsTitle">Settings</h4>
+        <div class="card">
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label" data-i18n="profile">Profile</label>
+              <div>
+                <span class="me-2"><i class="bi bi-person-circle"></i> Manager</span>
+                <span class="text-muted small ms-2">manager@rheonics.com</span>
+                <button class="btn btn-link btn-sm ms-2" data-i18n="editProfile">Edit profile</button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" data-i18n="theme">Theme</label>
+              <div class="d-flex align-items-center gap-4 mt-2" id="themeSelector">
+                <label class="theme-option">
+                  <input type="radio" name="theme" value="dark" id="themeDarkRadio">
+                  <div class="theme-visual dark">
+                    <div class="theme-sidebar"></div>
+                    <div class="theme-main"></div>
+                  </div>
+                  <div class="theme-label" data-i18n="dark">Dark</div>
+                </label>
+                <label class="theme-option">
+                  <input type="radio" name="theme" value="light" id="themeLightRadio">
+                  <div class="theme-visual light">
+                    <div class="theme-sidebar"></div>
+                    <div class="theme-main"></div>
+                  </div>
+                  <div class="theme-label" data-i18n="light">Light</div>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" data-i18n="language">Language</label>
+              <div class="d-flex flex-wrap gap-2 mt-2" id="langSelectorSettings">
+                <label class="lang-option-radio">
+                  <input type="radio" name="settingsLang" value="en">
+                  English
+                </label>
+                <label class="lang-option-radio">
+                  <input type="radio" name="settingsLang" value="es">
+                  Español
+                </label>
+                <!-- Más idiomas aquí -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <span id="currentDateTime" class="p-2"></span>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script src="script.js"></script>
+
+
+
+  </div>
+</body>
+
+</html>
